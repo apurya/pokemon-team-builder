@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes popin {
+  from { transform: scale(0.85); opacity: 0.4; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes cry-bounce {
+  0%   { transform: translateY(0) scale(1); }
+  30%  { transform: translateY(-6px) scale(1.08); }
+  55%  { transform: translateY(0) scale(0.96); }
+  75%  { transform: translateY(-2px) scale(1.02); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes float-blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(20px, -25px) scale(1.08); }
+  66%      { transform: translate(-15px, 15px) scale(0.94); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(214, 41, 62, 0.35); }
+  70%  { box-shadow: 0 0 0 8px rgba(214, 41, 62, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(214, 41, 62, 0); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-float-blob { animation: float-blob 10s ease-in-out infinite; }
+.animate-fade-in-up { animation: fade-in-up 0.35s ease-out both; }
+.animate-pulse-ring  { animation: pulse-ring 2.2s ease-out infinite; }
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, rgba(34,33,43,0.06) 25%, rgba(34,33,43,0.14) 37%, rgba(34,33,43,0.06) 63%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 8px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(34, 33, 43, 0.25);
+  border-radius: 999px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover { background: rgba(34, 33, 43, 0.45); }
+
+.pokeball-logo { transition: transform 0.4s ease; }
+.pokeball-logo:hover { animation: spin-slow 0.6s ease-in-out; }
+
+/* ===== Neo-brutalist utilities ===== */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee-scroll 14s linear infinite; }
+
+@keyframes jitter-in {
+  0%   { transform: scale(0.9) rotate(-3deg); opacity: 0; }
+  60%  { transform: scale(1.03) rotate(1deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+.animate-jitter-in { animation: jitter-in 0.4s cubic-bezier(.2,.9,.3,1.3) both; }
+
+.brutal-dots {
+  background-image: radial-gradient(rgba(244, 238, 221, 0.16) 2.5px, transparent 2.5px);
+  background-size: 22px 22px;
+}
+
+.brutal-stripes {
+  background: repeating-linear-gradient(
+    135deg,
+    #22212B,
+    #22212B 14px,
+    #1a1922 14px,
+    #1a1922 28px
+  );
+}
+
+.brutal-shadow {
+  box-shadow: 6px 6px 0 0 #22212B;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.brutal-shadow-sm {
+  box-shadow: 3px 3px 0 0 #22212B;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.brutal-press:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 0 #22212B;
+}
+.brutal-press:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 0 #22212B;
+}
+.brutal-press-sm:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 0 #22212B;
+}
+.brutal-press-sm:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0 0 #22212B;
+}
+
+.text-stroke-brutal {
+  -webkit-text-stroke: 2px #22212B;
+  paint-order: stroke fill;
+}
+
+.brutal-grid {
+  background-image:
+    linear-gradient(rgba(244,238,221,0.07) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(244,238,221,0.07) 2px, transparent 2px);
+  background-size: 34px 34px;
+}
+
+.brutal-tape {
+  position: absolute;
+  height: 26px;
+  background: repeating-linear-gradient(45deg, #FFD666, #FFD666 8px, #22212B 8px, #22212B 16px);
+  border: 3px solid #22212B;
+  box-shadow: 3px 3px 0 0 #22212B;
+}
+
+.brutal-badge {
+  box-shadow: 4px 4px 0 0 #22212B;
+  transform: rotate(-2deg);
+}
+
+@keyframes blob-pulse {
+  0%, 100% { transform: scale(1) rotate(var(--r, 0deg)); }
+  50%      { transform: scale(1.15) rotate(var(--r, 0deg)); }
+}
+.animate-blob-pulse { animation: blob-pulse 4.5s ease-in-out infinite; }
+
+.hero-title-glow {
+  text-shadow: 6px 6px 0 #D6293E, 10px 10px 0 rgba(34,33,43,0.25);
+}
+
+.brutal-card{
+  background:#F4EEDD;
+  border:4px solid #22212B;
+  border-radius:24px;
+  box-shadow:8px 8px 0 #22212B;
+  transition:.18s;
+}
+.brutal-card:hover{
+  transform:translate(-3px,-3px);
+  box-shadow:12px 12px 0 #D6293E;
+}
+
+/* ===== HERO BOOST — neo-brutalist v2 ===== */
+
+.brutal-halftone {
+  background-image: radial-gradient(rgba(244,238,221,0.4) 3px, transparent 3px);
+  background-size: 18px 18px;
+}
+
+.brutal-zigzag {
+  height: 16px;
+  width: 100%;
+  background:
+    linear-gradient(135deg, #FFD666 25%, transparent 25%) 0 0/16px 16px,
+    linear-gradient(225deg, #FFD666 25%, transparent 25%) 0 0/16px 16px,
+    linear-gradient(315deg, #FFD666 25%, transparent 25%) 0 0/16px 16px,
+    linear-gradient(45deg,  #FFD666 25%, transparent 25%) 0 0/16px 16px;
+  background-color: #22212B;
+}
+
+.brutal-stamp {
+  border: 3px dashed #22212B;
+}
+
+.brutal-shadow-xl {
+  box-shadow: 12px 12px 0 0 #22212B;
+}
+
+.hero-title-stack {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+}
+.hero-title-stack .layer-back {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  color: #22212B;
+  transform: translate(7px, 7px);
+  -webkit-text-stroke: 0;
+}
+.hero-title-stack .layer-mid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  color: #D6293E;
+  transform: translate(4px, 4px);
+  -webkit-text-stroke: 0;
+}
+
+.brutal-bolt {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #22212B;
+  box-shadow: inset 0 0 0 3px #F4EEDD;
+}
+
+@keyframes ticker-strobe {
+  0%, 100% { background-color: #FFD666; }
+  50% { background-color: #5FD0E0; }
+}
+.animate-ticker-strobe { animation: ticker-strobe 3s steps(2) infinite; }
+
+/* ===== POKEMON CARD BOOST ===== */
+.brutal-card-frame {
+  border: 4px solid #22212B;
+  background: #F4EEDD;
+}
+
+.brutal-corner-cut {
+  clip-path: polygon(0 8px, 8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+}
+
+.brutal-number-tag {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== TEAM SLOT BOOST ===== */
+.brutal-slot-number {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 22px;
+  height: 22px;
+  border: 3px solid #22212B;
+  background: #22212B;
+  color: #F4EEDD;
+  font-weight: 900;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brutal-plus {
+  position: relative;
+  width: 28px;
+  height: 28px;
+}
+.brutal-plus::before,
+.brutal-plus::after {
+  content: '';
+  position: absolute;
+  background: #22212B;
+  opacity: 0.35;
+}
+.brutal-plus::before { top: 50%; left: 0; width: 100%; height: 4px; transform: translateY(-50%); }
+.brutal-plus::after  { left: 50%; top: 0; height: 100%; width: 4px; transform: translateX(-50%); }
